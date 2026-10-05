@@ -7,6 +7,7 @@
 
 import { AudioEngine } from '../audio/SpatialAudio';
 import { GameState } from '../core/GameState';
+import { getAssetUrl } from '../utils/assets';
 
 export class InkSketchbook {
   private static instance: InkSketchbook;
@@ -749,22 +750,22 @@ export class FolioJournal {
 
     const evidenceItems = [
       {
-        thumb: '/assets/closeup_crate.jpg',
+        thumb: getAssetUrl('assets/closeup_crate.jpg'),
         title: 'Convoy Wagons (4 Weeping Lac)',
         obs: 'Exactly 4 wagons weep amber pitch with lac guild stamps. 1 festival cart drips honey as a red herring.'
       },
       {
-        thumb: '/assets/closeup_tally_board.jpg',
+        thumb: getAssetUrl('assets/closeup_tally_board.jpg'),
         title: 'Town Surveyor\'s Folio Plan',
         obs: 'Architectural blueprint shows 7 doors. Purochana swore a house of 5 doors (7 - 5 = 2).'
       },
       {
-        thumb: '/assets/closeup_copper_disc.jpg',
+        thumb: getAssetUrl('assets/closeup_copper_disc.jpg'),
         title: 'Vidura\'s Moon Count Disc',
         obs: 'A ring of 9 moons: 6 carved lit, 3 dark remaining. Counts nights until the planned fire.'
       },
       {
-        thumb: '/assets/closeup_tally_board.jpg',
+        thumb: getAssetUrl('assets/closeup_tally_board.jpg'),
         title: 'Merchant Tally Tablet',
         obs: 'Notched counting slate equating counting notches 1–9 to Sanskrit numerals १–९.'
       }
@@ -772,7 +773,7 @@ export class FolioJournal {
 
     if (GameState.knowledge.sawLacShipment) {
       evidenceItems.push({
-        thumb: '/assets/closeup_crate.jpg',
+        thumb: getAssetUrl('assets/closeup_crate.jpg'),
         title: 'Amber blocks packed in cedar, smelling of ghee',
         obs: 'Raw, translucent blocks of lac resin packed secretly beneath cedar wood shavings, smelling heavily of clarified ghee.'
       });
@@ -780,7 +781,7 @@ export class FolioJournal {
 
     if (GameState.knowledge.noticedDoorMismatch) {
       evidenceItems.push({
-        thumb: '/assets/room02_plan_table.jpg',
+        thumb: getAssetUrl('assets/room02_plan_table.jpg'),
         title: 'Door Count Mismatch',
         obs: 'Seven doors drawn on surveyor\'s folio, but only five built in the palace hall. A discrepancy of two doors.'
       });
@@ -788,7 +789,7 @@ export class FolioJournal {
 
     if (GameState.knowledge.houseLayoutMapped) {
       evidenceItems.push({
-        thumb: '/assets/room02_east_wall.jpg',
+        thumb: getAssetUrl('assets/room02_east_wall.jpg'),
         title: 'East Wall Strip',
         obs: 'Measuring cord proves the east wing is 16 lengths on the plan, but only 12 in the hall. Four lengths are hidden within the wall.'
       });
@@ -796,7 +797,7 @@ export class FolioJournal {
 
     if (GameState.knowledge.knowsHollowFlues) {
       evidenceItems.push({
-        thumb: '/assets/room02_lotus_plate.jpg',
+        thumb: getAssetUrl('assets/room02_lotus_plate.jpg'),
         title: 'Hollow Resonance',
         obs: 'Tapping the east cedar frieze produces a deep hollow ring. An 8-petal brass lotus plate with petal #3 elongated unseals the stair.'
       });
@@ -804,7 +805,7 @@ export class FolioJournal {
 
     if (GameState.knowledge.knowsExternalLock) {
       evidenceItems.push({
-        thumb: '/assets/room02_door_latch.jpg',
+        thumb: getAssetUrl('assets/room02_door_latch.jpg'),
         title: 'Outside Bolts',
         obs: 'Every chamber door has its heavy iron slide-bolt mounted exclusively on the exterior frame, locking the Pandavas in from without.'
       });
@@ -812,7 +813,7 @@ export class FolioJournal {
 
     if (GameState.clues.some(c => c.id === 'clue_camphor_cakes')) {
       evidenceItems.push({
-        thumb: '/assets/room02_jewelry_chest.jpg',
+        thumb: getAssetUrl('assets/room02_jewelry_chest.jpg'),
         title: 'Camphor, burns bright and fast [RED HERRING]',
         obs: 'Ceremonial white camphor cakes on the stone altar. Highly flammable but purely ceremonial ritual offerings.'
       });
@@ -822,7 +823,7 @@ export class FolioJournal {
       const card = document.createElement('div');
       card.className = 'evidence-mini-card';
       card.innerHTML = `
-        <img src="${item.thumb}" alt="${item.title}" class="evidence-ink-thumb" onerror="this.style.display='none'">
+        <img src="${getAssetUrl(item.thumb)}" alt="${item.title}" class="evidence-ink-thumb" onerror="this.style.display='none'">
         <div class="evidence-card-body">
           <div class="evidence-card-title">${item.title}</div>
           <p class="evidence-card-obs">${item.obs}</p>

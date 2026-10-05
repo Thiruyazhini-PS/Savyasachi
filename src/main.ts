@@ -14,6 +14,7 @@ import { Tableau } from './tableau/DeductionBoard';
 import { Folio, FolioSketchbook } from './journal/Sketchbook';
 import { ClueDefinition } from './types';
 import { ROOM2_PUZZLE_CONFIG } from './rooms/RoomData';
+import { getAssetUrl } from './utils/assets';
 
 interface InventoryItem {
   id: string;
@@ -1121,7 +1122,7 @@ class ChakravyuhaApp {
       id: 'convoy',
       name: 'Arrival Convoy (9 Wagons)',
       role: 'Royal & Festival Wagons',
-      portrait: '/assets/closeup_crate.jpg',
+      portrait: getAssetUrl('assets/closeup_crate.jpg'),
       x: 12,
       y: 55,
       onClick: () => {
@@ -1134,7 +1135,7 @@ class ChakravyuhaApp {
       id: 'kunti',
       name: 'Queen Kunti',
       role: 'Mother of the Pandavas',
-      portrait: '/assets/char_kunti.jpg',
+      portrait: getAssetUrl('assets/char_kunti.jpg'),
       x: 25,
       y: 65,
       onClick: (actor) => {
@@ -1149,7 +1150,7 @@ class ChakravyuhaApp {
       id: 'envoy',
       name: 'Wandering Ascetic',
       role: "Vidura's Secret Envoy",
-      portrait: '/assets/closeup_copper_disc.jpg',
+      portrait: getAssetUrl('assets/closeup_copper_disc.jpg'),
       x: 38,
       y: 68,
       onClick: (actor) => {
@@ -1165,7 +1166,7 @@ class ChakravyuhaApp {
             icon: '🔘',
             type: 'CIPHER TALISMAN',
             desc: "Vidura's heavy bronze-copper disc. A celestial ring of 9 moons: 6 carved lit, and 3 dark hollows remaining. 'The disc keeps count of nights. Ask it what remains.'",
-            imageSrc: '/assets/closeup_copper_disc.jpg',
+            imageSrc: getAssetUrl('assets/closeup_copper_disc.jpg'),
           }, actor.x, actor.y);
 
         } else {
@@ -1181,7 +1182,7 @@ class ChakravyuhaApp {
       id: 'surveyor_folio',
       name: "Town Surveyor's Folio",
       role: 'Architectural Blueprint (7 Doors)',
-      portrait: '/assets/closeup_tally_board.jpg',
+      portrait: getAssetUrl('assets/closeup_tally_board.jpg'),
       x: 50,
       y: 76,
       onClick: () => {
@@ -1194,7 +1195,7 @@ class ChakravyuhaApp {
       id: 'tally_stone',
       name: "Merchant's Tally Stone",
       role: 'Rosetta Key',
-      portrait: '/assets/closeup_tally_board.jpg',
+      portrait: getAssetUrl('assets/closeup_tally_board.jpg'),
       x: 62,
       y: 76,
       onClick: () => {
@@ -1207,7 +1208,7 @@ class ChakravyuhaApp {
       id: 'cargo_crate',
       name: 'Reinforced Cargo Crate',
       role: 'Royal Cargo',
-      portrait: '/assets/closeup_crate.jpg',
+      portrait: getAssetUrl('assets/closeup_crate.jpg'),
       x: 74,
       y: 70,
       onClick: () => {
@@ -1220,7 +1221,7 @@ class ChakravyuhaApp {
       id: 'purochana',
       name: 'Purochana',
       role: 'Royal Steward & Architect',
-      portrait: '/assets/char_purochana.jpg',
+      portrait: getAssetUrl('assets/char_purochana.jpg'),
       x: 86,
       y: 56,
       onClick: (actor) => {
@@ -1265,7 +1266,7 @@ class ChakravyuhaApp {
     el.innerHTML = `
       <div class="actor-card-manhwa">
         <div class="actor-avatar-ring">
-          <img src="${config.portrait}" alt="${config.name}" class="actor-avatar-img">
+          <img src="${getAssetUrl(config.portrait)}" alt="${config.name}" class="actor-avatar-img">
         </div>
         <div class="actor-nametag">
           <span class="actor-name">${config.name}</span>
@@ -1302,7 +1303,7 @@ class ChakravyuhaApp {
 
     bubble.innerHTML = `
       <div class="bubble-portrait">
-        <img src="${portraitSrc}" alt="${speaker}">
+        <img src="${getAssetUrl(portraitSrc)}" alt="${speaker}">
       </div>
       <div class="bubble-content">
         <span class="bubble-speaker">${speaker}</span>
@@ -1334,7 +1335,7 @@ class ChakravyuhaApp {
     flyer.style.height = '70px';
     flyer.style.borderRadius = '50%';
     flyer.style.border = '2px solid #d4af37';
-    flyer.style.background = `url('${item.imageSrc}') center/cover`;
+    flyer.style.background = `url('${getAssetUrl(item.imageSrc)}') center/cover`;
     flyer.style.boxShadow = '0 0 25px rgba(212, 175, 55, 0.8), 0 10px 25px rgba(0,0,0,0.6)';
     flyer.style.zIndex = '9000';
     flyer.style.pointerEvents = 'none';
@@ -1383,7 +1384,7 @@ class ChakravyuhaApp {
   private openCrateCloseUp() {
     if (GameState.getVigilanceState() === 'DANGER') {
       AudioEngine.playWallTap(false);
-      this.showSpeechBubble(64, 59, 'Purochana’s Steward', '/assets/char_purochana.jpg',
+      this.showSpeechBubble(64, 59, 'Purochana’s Steward', getAssetUrl('assets/char_purochana.jpg'),
         "Halt! Royal provisions are sealed under the architect's royal mark. Step away from the wagons!"
       );
       AudioEngine.triggerCaption("✦ [Interaction locked: Vigilance at Danger!]");
@@ -1395,7 +1396,7 @@ class ChakravyuhaApp {
 
     this.currentCloseUpObject = 'crate';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = '/assets/closeup_crate.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/closeup_crate.jpg');
     this.dom.closeupObjectLabel.innerText = 'ROYAL CONVOY CARGO';
     this.dom.btnInspectTallyShortcut.classList.remove('hidden');
 
@@ -1732,7 +1733,7 @@ class ChakravyuhaApp {
   public openConvoyCloseUp() {
     this.currentCloseUpObject = 'convoy';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = '/assets/closeup_crate.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/closeup_crate.jpg');
     this.dom.closeupObjectLabel.innerText = "ARRIVAL CONVOY · 9 WAGONS";
     this.dom.closeupWhisperText.innerText = "Nine wagons stand in the temple courtyard. Exactly 4 have resin-stained wheels and lac guild stamps. One sweet cart drips honey (red herring).";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
@@ -1800,7 +1801,7 @@ class ChakravyuhaApp {
   public openSurveyorFolioCloseUp() {
     this.currentCloseUpObject = 'folio_plan';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = '/assets/closeup_tally_board.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/closeup_tally_board.jpg');
     this.dom.closeupObjectLabel.innerText = "TOWN SURVEYOR'S FOLIO · ARCHITECTURAL BLUEPRINT";
     this.dom.closeupWhisperText.innerText = "The surveyor's folio plan clearly shows 7 doors. But Purochana swore: 'a house of five doors.'";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
@@ -1905,7 +1906,7 @@ class ChakravyuhaApp {
   public openTallyStoneCloseUp() {
     this.currentCloseUpObject = 'tally';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = '/assets/closeup_tally_board.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/closeup_tally_board.jpg');
     this.dom.closeupObjectLabel.innerText = "MERCHANT'S TALLY STONE · ROSETTA KEY";
     this.dom.closeupWhisperText.innerText = "The merchant's tally stone correlates counting notches (1 to 9) with Sanskrit numerals (१ to ९).";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
@@ -2050,14 +2051,14 @@ class ChakravyuhaApp {
       icon: '🔘',
       type: 'CIPHER TALISMAN',
       desc: "Vidura's heavy bronze-copper disc. A celestial ring of 9 moons: 6 carved lit, and 3 dark hollows remaining. 'The disc keeps count of nights. Ask it what remains.'",
-      imageSrc: '/assets/closeup_copper_disc.jpg',
+      imageSrc: getAssetUrl('assets/closeup_copper_disc.jpg'),
     });
   }
 
   public openArtifactCloseUp(item: InventoryItem) {
     this.currentCloseUpObject = 'disc';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = item.imageSrc;
+    this.dom.closeupImage.src = getAssetUrl(item.imageSrc);
     this.dom.closeupObjectLabel.innerText = item.name.toUpperCase();
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
 
@@ -2238,31 +2239,31 @@ class ChakravyuhaApp {
   private triggerRoom2OpeningDialogue() {
     // Shot-by-shot opening lines anchored to speakers (each <= 14 words, voiceless with audio tick)
     setTimeout(() => {
-      this.showSpeechBubble(84, 30, 'Purochana', '/assets/char_purochana.jpg',
+      this.showSpeechBubble(84, 30, 'Purochana', getAssetUrl('assets/char_purochana.jpg'),
         "Welcome, princes. Not a nail was spared for your comfort."
       );
     }, 500);
 
     setTimeout(() => {
-      this.showSpeechBubble(45, 52, 'Queen Kunti', '/assets/char_kunti.jpg',
+      this.showSpeechBubble(45, 52, 'Queen Kunti', getAssetUrl('assets/char_kunti.jpg'),
         "It is lovely. Why does my chest feel so tight?"
       );
     }, 3200);
 
     setTimeout(() => {
-      this.showSpeechBubble(54, 46, 'Yudhishthira', '/assets/char_yudhishthira.jpg',
+      this.showSpeechBubble(54, 46, 'Yudhishthira', getAssetUrl('assets/char_yudhishthira.jpg'),
         "Smell the air. Ghee and resin, and nothing is cooking."
       );
     }, 6000);
 
     setTimeout(() => {
-      this.showSpeechBubble(36, 46, 'Bhimasena', '/assets/char_bhima.jpg',
+      this.showSpeechBubble(36, 46, 'Bhimasena', getAssetUrl('assets/char_bhima.jpg'),
         "A house that smells like a feast with no feast."
       );
     }, 8800);
 
     setTimeout(() => {
-      this.showSpeechBubble(54, 46, 'Yudhishthira', '/assets/char_yudhishthira.jpg',
+      this.showSpeechBubble(54, 46, 'Yudhishthira', getAssetUrl('assets/char_yudhishthira.jpg'),
         "Say nothing. Smile. Keep your eyes open."
       );
     }, 11500);
@@ -2322,12 +2323,12 @@ class ChakravyuhaApp {
   private startRoom2IdleBarks() {
     this.stopRoom2IdleBarks();
     const barks = [
-      { speaker: 'Oil-Bearer', portrait: '/assets/room02_char_oilbearer.jpg', text: "Mind the floor, my lord. We oiled it this morning." },
-      { speaker: 'Lamp-Boy', portrait: '/assets/room02_char_lampboy.jpg', text: "They never stay straight, these flames. Always bending." },
-      { speaker: 'Steward Guard', portrait: '/assets/char_guard.jpg', text: "Not that door, my lord. It sticks." },
-      { speaker: 'Nakula', portrait: '/assets/char_twins.jpg', text: "This oil feels like butter." },
-      { speaker: 'Sahadeva', portrait: '/assets/char_twins.jpg', text: "Ours at home never smelled like this." },
-      { speaker: 'Arjuna', portrait: '/assets/char_arjuna.jpg', text: "The bolts are all outside. Strange for a guest house." }
+      { speaker: 'Oil-Bearer', portrait: getAssetUrl('assets/room02_char_oilbearer.jpg'), text: "Mind the floor, my lord. We oiled it this morning." },
+      { speaker: 'Lamp-Boy', portrait: getAssetUrl('assets/room02_char_lampboy.jpg'), text: "They never stay straight, these flames. Always bending." },
+      { speaker: 'Steward Guard', portrait: getAssetUrl('assets/char_guard.jpg'), text: "Not that door, my lord. It sticks." },
+      { speaker: 'Nakula', portrait: getAssetUrl('assets/char_twins.jpg'), text: "This oil feels like butter." },
+      { speaker: 'Sahadeva', portrait: getAssetUrl('assets/char_twins.jpg'), text: "Ours at home never smelled like this." },
+      { speaker: 'Arjuna', portrait: getAssetUrl('assets/char_arjuna.jpg'), text: "The bolts are all outside. Strange for a guest house." }
     ];
 
     let lastIdx = -1;
@@ -2368,7 +2369,7 @@ class ChakravyuhaApp {
       id: 'purochana',
       name: 'Purochana',
       role: 'Royal Architect',
-      portrait: '/assets/char_purochana.jpg',
+      portrait: getAssetUrl('assets/char_purochana.jpg'),
       x: 82,
       y: 20,
       onClick: (actor) => {
@@ -2398,7 +2399,7 @@ class ChakravyuhaApp {
       id: 'oil_bearer',
       name: 'Oil-Bearer',
       role: 'Palace Servant',
-      portrait: '/assets/room02_char_oilbearer.jpg',
+      portrait: getAssetUrl('assets/room02_char_oilbearer.jpg'),
       x: 74,
       y: 56,
       onClick: (actor) => {
@@ -2413,7 +2414,7 @@ class ChakravyuhaApp {
       id: 'lamp_boy',
       name: 'Lamp-Boy',
       role: 'Palace Servant',
-      portrait: '/assets/room02_char_lampboy.jpg',
+      portrait: getAssetUrl('assets/room02_char_lampboy.jpg'),
       x: 22,
       y: 56,
       onClick: (actor) => {
@@ -2428,7 +2429,7 @@ class ChakravyuhaApp {
       id: 'steward_guard',
       name: 'Steward Guard',
       role: "Purochana's Sentry",
-      portrait: '/assets/char_guard.jpg',
+      portrait: getAssetUrl('assets/char_guard.jpg'),
       x: 95,
       y: 58,
       onClick: (actor) => {
@@ -2444,7 +2445,7 @@ class ChakravyuhaApp {
         id: 'steward_guard_east',
         name: 'Alerted Guard',
         role: "Stationed Sentry",
-        portrait: '/assets/char_guard.jpg',
+        portrait: getAssetUrl('assets/char_guard.jpg'),
         x: 88,
         y: 44,
         onClick: (actor) => {
@@ -2460,7 +2461,7 @@ class ChakravyuhaApp {
       id: 'kunti',
       name: 'Queen Kunti',
       role: 'Mother of Pandavas',
-      portrait: '/assets/char_kunti.jpg',
+      portrait: getAssetUrl('assets/char_kunti.jpg'),
       x: 49,
       y: 64,
       onClick: (actor) => {
@@ -2475,7 +2476,7 @@ class ChakravyuhaApp {
       id: 'yudhishthira',
       name: 'Yudhishthira',
       role: 'Eldest Pandava',
-      portrait: '/assets/char_yudhishthira.jpg',
+      portrait: getAssetUrl('assets/char_yudhishthira.jpg'),
       x: 58,
       y: 50,
       onClick: (actor) => {
@@ -2490,7 +2491,7 @@ class ChakravyuhaApp {
       id: 'bhima',
       name: 'Bhimasena',
       role: 'Second Pandava',
-      portrait: '/assets/char_bhima.jpg',
+      portrait: getAssetUrl('assets/char_bhima.jpg'),
       x: 40,
       y: 52,
       onClick: (actor) => {
@@ -2505,7 +2506,7 @@ class ChakravyuhaApp {
       id: 'arjuna',
       name: 'Arjuna',
       role: 'Master Archer',
-      portrait: '/assets/char_arjuna.jpg',
+      portrait: getAssetUrl('assets/char_arjuna.jpg'),
       x: 13,
       y: 72,
       onClick: (actor) => {
@@ -2520,7 +2521,7 @@ class ChakravyuhaApp {
       id: 'nakula_sahadeva',
       name: 'Nakula & Sahadeva',
       role: 'Twin Princes',
-      portrait: '/assets/char_twins.jpg',
+      portrait: getAssetUrl('assets/char_twins.jpg'),
       x: 31,
       y: 72,
       onClick: (actor) => {
@@ -2535,7 +2536,7 @@ class ChakravyuhaApp {
       id: 'plan_table',
       name: "Surveyor's Table",
       role: 'Architectural Plan',
-      portrait: '/assets/room02_plan_table.jpg',
+      portrait: getAssetUrl('assets/room02_plan_table.jpg'),
       x: 50,
       y: 84,
       onClick: () => {
@@ -2548,7 +2549,7 @@ class ChakravyuhaApp {
       id: 'east_wall',
       name: 'East Wall Frieze',
       role: 'Carved Lotus Plate',
-      portrait: '/assets/room02_east_wall.jpg',
+      portrait: getAssetUrl('assets/room02_east_wall.jpg'),
       x: 82,
       y: 50,
       onClick: () => {
@@ -2561,7 +2562,7 @@ class ChakravyuhaApp {
       id: 'door_latch',
       name: 'Outer Door Latch',
       role: 'Exterior Slide-Bolt',
-      portrait: '/assets/room02_door_latch.jpg',
+      portrait: getAssetUrl('assets/room02_door_latch.jpg'),
       x: 7,
       y: 48,
       onClick: () => {
@@ -2574,7 +2575,7 @@ class ChakravyuhaApp {
       id: 'camphor_chest',
       name: 'Altar Offering Chest',
       role: 'Camphor Cakes',
-      portrait: '/assets/room02_jewelry_chest.jpg',
+      portrait: getAssetUrl('assets/room02_jewelry_chest.jpg'),
       x: 89,
       y: 72,
       onClick: () => {
@@ -2587,11 +2588,11 @@ class ChakravyuhaApp {
       id: 'brazier_oil',
       name: 'Brass Brazier',
       role: 'Leaning Flame',
-      portrait: '/assets/room02_brazier_oil.jpg',
+      portrait: getAssetUrl('assets/room02_brazier_oil.jpg'),
       x: 66,
       y: 72,
       onClick: () => {
-        this.showSpeechBubble(66, 60, 'Observation', '/assets/room02_brazier_oil.jpg',
+        this.showSpeechBubble(66, 60, 'Observation', getAssetUrl('assets/room02_brazier_oil.jpg'),
           "The flame persistently leans east toward the frieze, pulled by a subtle subterranean draft."
         );
       }
@@ -2603,7 +2604,7 @@ class ChakravyuhaApp {
         id: 'hidden_stair',
         name: 'Concealed Stairway',
         role: 'Descent to Cellar',
-        portrait: '/assets/room02_hidden_stair.jpg',
+        portrait: getAssetUrl('assets/room02_hidden_stair.jpg'),
         x: 76,
         y: 52,
         onClick: () => {
@@ -2619,7 +2620,7 @@ class ChakravyuhaApp {
   public openSurveyorPlanTableCloseUp() {
     this.currentCloseUpObject = 'plan_table';
     AudioEngine.playParchmentRustle();
-    this.dom.closeupImage.src = '/assets/room02_plan_table.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/room02_plan_table.jpg');
     this.dom.closeupObjectLabel.innerText = "SURVEYOR'S DRAFTING TABLE · 16 VS 12 KNOTS";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
 
@@ -2725,7 +2726,7 @@ class ChakravyuhaApp {
   public openEastWallKnockCloseUp() {
     this.currentCloseUpObject = 'east_wall';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = '/assets/room02_east_wall.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/room02_east_wall.jpg');
     this.dom.closeupObjectLabel.innerText = "EAST WALL · CARVED LOTUS FRIEZE & ELEPHANTS";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
     this.dom.closeupWhisperText.innerText =
@@ -2841,7 +2842,7 @@ class ChakravyuhaApp {
   public openLotusPlateCloseUp() {
     this.currentCloseUpObject = 'lotus_plate';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = '/assets/room02_lotus_plate.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/room02_lotus_plate.jpg');
     this.dom.closeupObjectLabel.innerText = "BRASS LOTUS MEDALLION · 8 PETALS & ARROW GROOVE";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
     this.dom.closeupWhisperText.innerText =
@@ -3003,7 +3004,7 @@ class ChakravyuhaApp {
   public openDoorLatchCloseUp() {
     this.currentCloseUpObject = 'door_latch';
     AudioEngine.playWoodCreak();
-    this.dom.closeupImage.src = '/assets/room02_door_latch.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/room02_door_latch.jpg');
     this.dom.closeupObjectLabel.innerText = "CHAMBER OUTER DOOR LATCH · EXTERNAL DEAD-BOLT";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
     this.dom.closeupWhisperText.innerText =
@@ -3060,7 +3061,7 @@ class ChakravyuhaApp {
   public openJewelryChestCloseUp() {
     this.currentCloseUpObject = 'camphor_chest';
     AudioEngine.playParchmentRustle();
-    this.dom.closeupImage.src = '/assets/room02_jewelry_chest.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/room02_jewelry_chest.jpg');
     this.dom.closeupObjectLabel.innerText = "SANDALWOOD ALTAR CHEST · AROMATIC OFFERINGS";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
     this.dom.closeupWhisperText.innerText =
@@ -3118,7 +3119,7 @@ class ChakravyuhaApp {
   public openHiddenStairCloseUp() {
     this.currentCloseUpObject = 'hidden_stair';
     AudioEngine.playFootstep();
-    this.dom.closeupImage.src = '/assets/room02_hidden_stair.jpg';
+    this.dom.closeupImage.src = getAssetUrl('assets/room02_hidden_stair.jpg');
     this.dom.closeupObjectLabel.innerText = "CONCEALED STAIRWAY · PASSAGE TO PALACE FOUNDATIONS";
     this.dom.btnInspectTallyShortcut.classList.add('hidden');
     this.dom.closeupWhisperText.innerText =

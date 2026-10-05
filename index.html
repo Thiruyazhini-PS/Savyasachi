@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHAKRAVYUHA: The Escape from Lakshagriha</title>
-  <meta name="description" content="An award-winning anime/manhwa painterly escape-room experience set during the Lakshagriha episode of the Mahabharata.">
-  
+  <meta name="description"
+    content="An award-winning anime/manhwa painterly escape-room experience set during the Lakshagriha episode of the Mahabharata.">
+
   <!-- Google Fonts: Elegant Classical Serif, Soft Rounded Body & Handwritten Script -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Kalam:wght@400;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
-  <link rel="preload" as="image" href="/assets/room02_hall_wide.jpg">
+  <link rel="preload" as="image" href="assets/room02_hall_wide.jpg">
 </head>
+
 <body class="theme-light-manuscript">
 
   <!-- Audio unlock banner (starts hidden so Manhwa Reader loads immediately; audio resumes on first interaction) -->
@@ -22,16 +27,17 @@
       <div class="audio-lotus-icon">🪷</div>
       <h2>CHAKRAVYUHA</h2>
       <p class="subtitle">The Escape from Lakshagriha</p>
-      <p class="desc">Step into an illuminated living story. Experience 2.5D painterly depth, spatial sound, and authentic tactile escape-room investigation.</p>
+      <p class="desc">Step into an illuminated living story. Experience 2.5D painterly depth, spatial sound, and
+        authentic tactile escape-room investigation.</p>
       <button id="btn-enter-story" class="btn-brush-enter">ENTER THE LIVING TALE</button>
     </div>
   </div>
 
   <!-- Master Game Viewport Container -->
   <div id="game-app" class="game-container">
-    
+
     <!-- Ultra-Light Translucent HUD Elements (No heavy black bars) -->
-    
+
     <!-- Top-Left: Sacred Lotus Seal & Act Title -->
     <div class="hud-top-left">
       <div class="seal-badge" id="btn-menu-seal" title="Chronicle & Settings">
@@ -49,7 +55,8 @@
 
     <!-- Top-Right: Vigilance Living Gauge, Sound Controls, Folio, Deduction Tableau -->
     <div class="hud-top-right">
-      <div class="vigilance-candle-widget" id="vigilance-widget" title="Purochana's Watchfulness (Click or hover for details)" tabindex="0" role="button" aria-haspopup="true">
+      <div class="vigilance-candle-widget" id="vigilance-widget"
+        title="Purochana's Watchfulness (Click or hover for details)" tabindex="0" role="button" aria-haspopup="true">
         <div class="candle-flame calm" id="candle-flame"></div>
         <div class="candle-base"></div>
         <span class="vigilance-label" id="vigilance-text">Vigilance: Calm</span>
@@ -58,13 +65,18 @@
       <button id="btn-sound" class="hud-circle-btn" title="Audio & Volume Controls (M)" aria-label="Audio Controls">
         <svg id="sound-svg" class="hud-svg-icon" viewBox="0 0 24 24" width="22" height="22">
           <path class="speaker-body" d="M3 9v6h4l5 5V4L7 9H3z" fill="#2b231d" />
-          <path class="sound-wave wave-1" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="none" stroke="#87621c" stroke-width="1.8" stroke-linecap="round" />
-          <path class="sound-wave wave-2" d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="none" stroke="#87621c" stroke-width="1.8" stroke-linecap="round" />
-          <line class="mute-slash hidden" id="mute-slash-line" x1="2" y1="2" x2="22" y2="22" stroke="#96251b" stroke-width="2.2" stroke-linecap="round" />
+          <path class="sound-wave wave-1" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+            fill="none" stroke="#87621c" stroke-width="1.8" stroke-linecap="round" />
+          <path class="sound-wave wave-2"
+            d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
+            fill="none" stroke="#87621c" stroke-width="1.8" stroke-linecap="round" />
+          <line class="mute-slash hidden" id="mute-slash-line" x1="2" y1="2" x2="22" y2="22" stroke="#96251b"
+            stroke-width="2.2" stroke-linecap="round" />
         </svg>
       </button>
 
-      <button id="btn-folio" class="hud-circle-btn" title="Monk-Inscribed Folio & Journal (J)" aria-label="Folio Journal">
+      <button id="btn-folio" class="hud-circle-btn" title="Monk-Inscribed Folio & Journal (J)"
+        aria-label="Folio Journal">
         <span class="hud-emoji-icon">📜</span>
         <span id="folio-badge" class="hud-notif-badge hidden">0</span>
       </button>
@@ -177,7 +189,8 @@
 
     <!-- Bottom-Right: Drishti Insight Talisman -->
     <div class="hud-bottom-right">
-      <button id="btn-drishti" class="drishti-toggle-btn" title="Focus Drishti (Perceive Airflow, Secret Grain, Hidden Marks)">
+      <button id="btn-drishti" class="drishti-toggle-btn"
+        title="Focus Drishti (Perceive Airflow, Secret Grain, Hidden Marks)">
         <span class="drishti-eye-icon">👁‍🗨</span>
         <span class="drishti-label">DRISHTI</span>
       </button>
@@ -194,7 +207,7 @@
          SCENE 1: MANHWA WEBTOON INTRO READER (8 Cinematic Panels)
          ==================================================================== -->
     <section id="manhwa-container" class="manhwa-reader-container">
-      
+
       <!-- Sticky Header & Tracker -->
       <header class="manhwa-header">
         <div class="manhwa-header-left">
@@ -206,7 +219,9 @@
           <button id="btn-skip-manhwa" class="btn-skip-manhwa" title="Skip to Explorable Gate Room">
             <span>ENTER ROOM 1: GATES ›</span>
           </button>
-          <button id="btn-manhwa-room2" class="btn-skip-manhwa" style="margin-left: 8px; background: var(--crimson-vedic); color: #fff; border-color: #d4af37;" title="Jump directly to Room 2: Grand Chamber">
+          <button id="btn-manhwa-room2" class="btn-skip-manhwa"
+            style="margin-left: 8px; background: var(--crimson-vedic); color: #fff; border-color: #d4af37;"
+            title="Jump directly to Room 2: Grand Chamber">
             <span>ENTER ROOM 2: CHAMBER ›</span>
           </button>
         </div>
@@ -222,14 +237,15 @@
 
       <!-- Vertical Manhwa Panels Column -->
       <div class="manhwa-panels-column" id="manhwa-panels-column">
-        
+
         <!-- Panel 1: Wide establishing shot of the festival gate -->
         <article class="manhwa-panel active-panel" id="manhwa-panel-0" data-panel-index="0">
           <div class="manhwa-frame">
             <img src="assets/varanavata_mid_palace.jpg" alt="Varanavata Festival Gate" class="manhwa-art">
             <div class="manhwa-caption-box top-left">
               <span class="caption-eyebrow">❖ VARANAVATA · CITY OF PASHUPATI</span>
-              <p class="caption-text">On the high northern bank of the sacred Ganga, conch horns resound. The grand spring festival has gathered thousands to the river ghats.</p>
+              <p class="caption-text">On the high northern bank of the sacred Ganga, conch horns resound. The grand
+                spring festival has gathered thousands to the river ghats.</p>
             </div>
             <div class="sfx-painted-text bottom-right">❖ DHAN-DHAN ❖</div>
           </div>
@@ -241,7 +257,8 @@
             <img src="assets/manhwa_panel_chariot.jpg" alt="Pandavas Chariot Arrival" class="manhwa-art">
             <div class="manhwa-caption-box bottom-left">
               <span class="caption-eyebrow">❖ THE ROYAL ENTRY</span>
-              <p class="caption-text">Through roaring crowds chanting blessings and raining marigold blossoms, the golden car of the five sons of Pandu enters the outer boulevard.</p>
+              <p class="caption-text">Through roaring crowds chanting blessings and raining marigold blossoms, the
+                golden car of the five sons of Pandu enters the outer boulevard.</p>
             </div>
             <div class="sfx-painted-text top-right">❖ GHAR-GHAR ❖</div>
           </div>
@@ -263,7 +280,9 @@
               </div>
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Purochana</span>
-                <p class="bubble-line">"Hail, sons of Pandu! Welcome to holy Varanavata! By King Dhritarashtra's command, I have built a house of five doors — a celestial haven of cedar and gold consecrated for your rest on the promontory!"</p>
+                <p class="bubble-line">"Hail, sons of Pandu! Welcome to holy Varanavata! By King Dhritarashtra's
+                  command, I have built a house of five doors — a celestial haven of cedar and gold consecrated for your
+                  rest on the promontory!"</p>
               </div>
             </div>
           </div>
@@ -276,7 +295,8 @@
             <div class="manhwa-speed-lines"></div>
             <div class="manhwa-caption-box bottom-left">
               <span class="caption-eyebrow">❖ THE HIDDEN EYE</span>
-              <p class="caption-text">A steward's deferential bow... yet his sharp amber gaze darts sideways toward unmarked tarpaulin wagons guarded by mercenaries.</p>
+              <p class="caption-text">A steward's deferential bow... yet his sharp amber gaze darts sideways toward
+                unmarked tarpaulin wagons guarded by mercenaries.</p>
             </div>
             <div class="sfx-painted-text top-right sfx-dramatic">❖ DRISHTI ❖</div>
           </div>
@@ -292,13 +312,15 @@
               </div>
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Queen Kunti</span>
-                <p class="bubble-line">"Yudhishthira... the cedar is drenched in heavy temple oils, yet beneath it lies an acrid, choking scent. The convoy drivers bear no royal livery."</p>
+                <p class="bubble-line">"Yudhishthira... the cedar is drenched in heavy temple oils, yet beneath it lies
+                  an acrid, choking scent. The convoy drivers bear no royal livery."</p>
               </div>
             </div>
             <div class="manhwa-speech-bubble bottom-right">
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Yudhishthira</span>
-                <p class="bubble-line">"Remain serene, mother. Vidura warned of fire that consumes without iron. We must enter without letting them see our eyes have opened."</p>
+                <p class="bubble-line">"Remain serene, mother. Vidura warned of fire that consumes without iron. We must
+                  enter without letting them see our eyes have opened."</p>
               </div>
             </div>
           </div>
@@ -311,7 +333,8 @@
             <div class="manhwa-speech-bubble bottom-left">
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Vidura's Disguised Envoy</span>
-                <p class="bubble-line">"The wildfire spares only the creature that burrows like the porcupine. Keep this talisman close, Dharmaraja. Its coordinates unlock salvation."</p>
+                <p class="bubble-line">"The wildfire spares only the creature that burrows like the porcupine. Keep this
+                  talisman close, Dharmaraja. Its coordinates unlock salvation."</p>
               </div>
             </div>
             <div class="sfx-painted-text top-right">❖ TINK ❖</div>
@@ -324,7 +347,8 @@
             <img src="assets/closeup_crate.jpg" alt="Cargo Crate" class="manhwa-art">
             <div class="manhwa-caption-box top-right">
               <span class="caption-eyebrow">❖ THE SUSPICIOUS CARGO</span>
-              <p class="caption-text">Heavy iron-bound cedar crates sweating dark raw bitumen and boiled shellac. A 3-dial brass lock seals the hasp... and nearby, a stone tally tablet rests in the dust.</p>
+              <p class="caption-text">Heavy iron-bound cedar crates sweating dark raw bitumen and boiled shellac. A
+                3-dial brass lock seals the hasp... and nearby, a stone tally tablet rests in the dust.</p>
             </div>
             <div class="sfx-painted-text bottom-left">❖ DRIP... DRIP ❖</div>
           </div>
@@ -337,7 +361,8 @@
             <div class="manhwa-transition-prompt">
               <span class="transition-symbol">❖</span>
               <h2 class="transition-title">THE GATES OF VARANAVATA STAND OPEN</h2>
-              <p class="transition-desc">Investigate the courtyard, decode the merchant tally stone, and unlock the suspicious crate.</p>
+              <p class="transition-desc">Investigate the courtyard, decode the merchant tally stone, and unlock the
+                suspicious crate.</p>
               <button id="btn-enter-gate-room" class="btn-brush-enter">ENTER THE FESTIVAL GATES →</button>
             </div>
           </div>
@@ -350,7 +375,7 @@
          SCENE 1B: ROOM 2 MANHWA WEBTOON INTRO READER (7 Cinematic Panels)
          ==================================================================== -->
     <section id="manhwa-container-room2" class="manhwa-reader-container hidden">
-      
+
       <!-- Sticky Header & Tracker -->
       <header class="manhwa-header">
         <div class="manhwa-header-left">
@@ -359,7 +384,9 @@
         </div>
         <div class="manhwa-header-right">
           <span id="manhwa-panel-counter-room2" class="manhwa-panel-counter">PANEL 1 / 7</span>
-          <button id="btn-skip-manhwa-room2" class="btn-skip-manhwa" style="background: var(--crimson-vedic); color: #fff; border-color: #d4af37;" title="Skip directly to Room 2: Grand Chamber">
+          <button id="btn-skip-manhwa-room2" class="btn-skip-manhwa"
+            style="background: var(--crimson-vedic); color: #fff; border-color: #d4af37;"
+            title="Skip directly to Room 2: Grand Chamber">
             <span>ENTER ROOM 2: CHAMBER ›</span>
           </button>
         </div>
@@ -375,14 +402,16 @@
 
       <!-- Vertical Manhwa Panels Column -->
       <div class="manhwa-panels-column" id="manhwa-panels-column-room2">
-        
+
         <!-- Panel 1: Establishing shot of Lakshagriha on the promontory -->
         <article class="manhwa-panel active-panel" id="manhwa-panel-r2-0" data-panel-index="0">
           <div class="manhwa-frame">
             <img src="assets/manhwa_room2_palace.jpg" alt="Lakshagriha on the Promontory" class="manhwa-art">
             <div class="manhwa-caption-box top-left">
               <span class="caption-eyebrow">❖ THE PROMONTORY OF VARANAVATA</span>
-              <p class="caption-text">Leaving the festival crowds behind, the Pandavas ascend the limestone bluffs. High above the river Ganga, the palace of Lakshagriha rises in majestic silhouette against the crimson dusk.</p>
+              <p class="caption-text">Leaving the festival crowds behind, the Pandavas ascend the limestone bluffs. High
+                above the river Ganga, the palace of Lakshagriha rises in majestic silhouette against the crimson dusk.
+              </p>
             </div>
             <div class="sfx-painted-text bottom-right">❖ MAR-MAR ❖</div>
           </div>
@@ -404,7 +433,9 @@
               </div>
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Purochana</span>
-                <p class="bubble-line">"Welcome to your celestial haven, noble princes of Bharata! By Prince Duryodhana's munificence, every beam is seasoned cedar and rare shellac. No harsh stone, no cold iron—only warmth consecrated for your peace."</p>
+                <p class="bubble-line">"Welcome to your celestial haven, noble princes of Bharata! By Prince
+                  Duryodhana's munificence, every beam is seasoned cedar and rare shellac. No harsh stone, no cold
+                  iron—only warmth consecrated for your peace."</p>
               </div>
             </div>
             <div class="sfx-painted-text top-right">❖ VANDANA ❖</div>
@@ -418,7 +449,9 @@
             <div class="manhwa-speed-lines"></div>
             <div class="manhwa-caption-box top-left">
               <span class="caption-eyebrow">❖ GHRANA · SENSES OF THE WOLF-BELLIED</span>
-              <p class="caption-text">Bhima pauses before the ornate carved pillar. Beneath the heavy veil of camphor and saffron, his superhuman senses catch the unmistakable acrid bite of boiled shellac, tree lac, and crude petroleum pitch.</p>
+              <p class="caption-text">Bhima pauses before the ornate carved pillar. Beneath the heavy veil of camphor
+                and saffron, his superhuman senses catch the unmistakable acrid bite of boiled shellac, tree lac, and
+                crude petroleum pitch.</p>
             </div>
             <div class="manhwa-speech-bubble bottom-right">
               <div class="bubble-avatar">
@@ -426,7 +459,8 @@
               </div>
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Bhima</span>
-                <p class="bubble-line">"Brother... the joinery oozes amber oil under the torchlight. This entire palace is not a home—it is an engineered funeral pyre waiting for a midnight spark!"</p>
+                <p class="bubble-line">"Brother... the joinery oozes amber oil under the torchlight. This entire palace
+                  is not a home—it is an engineered funeral pyre waiting for a midnight spark!"</p>
               </div>
             </div>
             <div class="sfx-painted-text top-right sfx-dramatic">❖ CHIT-CHIT ❖</div>
@@ -436,14 +470,16 @@
         <!-- Panel 4: Yudhishthira and Queen Kunti remember Vidura's warning -->
         <article class="manhwa-panel" id="manhwa-panel-r2-3" data-panel-index="3">
           <div class="manhwa-frame">
-            <img src="assets/manhwa_room2_kunti_yudhishthira.jpg" alt="Kunti and Yudhishthira Whispering" class="manhwa-art">
+            <img src="assets/manhwa_room2_kunti_yudhishthira.jpg" alt="Kunti and Yudhishthira Whispering"
+              class="manhwa-art">
             <div class="manhwa-speech-bubble top-left">
               <div class="bubble-avatar">
                 <img src="assets/char_kunti.jpg" alt="Queen Kunti">
               </div>
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Queen Kunti</span>
-                <p class="bubble-line">"Vidura's riddle resounds in my soul: 'He who knows the weapon of fire cannot burn the creature deep in the womb of the earth.' We have stepped into Duryodhana's trap."</p>
+                <p class="bubble-line">"Vidura's riddle resounds in my soul: 'He who knows the weapon of fire cannot
+                  burn the creature deep in the womb of the earth.' We have stepped into Duryodhana's trap."</p>
               </div>
             </div>
             <div class="manhwa-speech-bubble bottom-right">
@@ -452,7 +488,8 @@
               </div>
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Yudhishthira</span>
-                <p class="bubble-line">"We must feign total blindness, mother. If Purochana suspects we know, he will lock the doors tonight. We smile, enter, and locate the subterranean path out."</p>
+                <p class="bubble-line">"We must feign total blindness, mother. If Purochana suspects we know, he will
+                  lock the doors tonight. We smile, enter, and locate the subterranean path out."</p>
               </div>
             </div>
             <div class="sfx-painted-text bottom-left">❖ SHUSH-SHUSH ❖</div>
@@ -465,7 +502,8 @@
             <img src="assets/room02_east_wall.jpg" alt="East Wall Hidden Flues" class="manhwa-art">
             <div class="manhwa-caption-box top-left">
               <span class="caption-eyebrow">❖ THE INVERTED FLUES</span>
-              <p class="caption-text">Arjuna observes the eastern paneling. Disguised ornamental lotus grilles are tilted to draw draughts inwards. Heavy iron latches seal every exterior casement from the outside.</p>
+              <p class="caption-text">Arjuna observes the eastern paneling. Disguised ornamental lotus grilles are
+                tilted to draw draughts inwards. Heavy iron latches seal every exterior casement from the outside.</p>
             </div>
             <div class="manhwa-speech-bubble bottom-right">
               <div class="bubble-avatar">
@@ -473,7 +511,8 @@
               </div>
               <div class="bubble-body">
                 <span class="bubble-speaker-name">Arjuna</span>
-                <p class="bubble-line">"The airflow is engineered to feed an inferno toward the sleeping chambers. The secret to our survival must lie behind this hollow false wall."</p>
+                <p class="bubble-line">"The airflow is engineered to feed an inferno toward the sleeping chambers. The
+                  secret to our survival must lie behind this hollow false wall."</p>
               </div>
             </div>
             <div class="sfx-painted-text top-right">❖ SHIR-SHIR ❖</div>
@@ -486,7 +525,8 @@
             <img src="assets/room02_brazier_oil.jpg" alt="Volatile Oil Braziers" class="manhwa-art">
             <div class="manhwa-caption-box bottom-left">
               <span class="caption-eyebrow">❖ THE PREPARED IGNITION</span>
-              <p class="caption-text">Monolithic copper braziers brim with flammable mineral naphtha and clarified ghee. Outside, Purochana's sentries take position under the guise of an honor guard.</p>
+              <p class="caption-text">Monolithic copper braziers brim with flammable mineral naphtha and clarified ghee.
+                Outside, Purochana's sentries take position under the guise of an honor guard.</p>
             </div>
             <div class="sfx-painted-text top-right">❖ DHVI-DHVI ❖</div>
           </div>
@@ -499,7 +539,8 @@
             <div class="manhwa-transition-prompt">
               <span class="transition-symbol">❖ ॐ ❖</span>
               <h2 class="transition-title">THE GRAND CHAMBER OF LAKSHAGRIHA</h2>
-              <p class="transition-desc">Step inside the palace of lacquer. Examine the ornamental lotus disc, expose the false east wall, and map the true layout before the midnight torch is struck.</p>
+              <p class="transition-desc">Step inside the palace of lacquer. Examine the ornamental lotus disc, expose
+                the false east wall, and map the true layout before the midnight torch is struck.</p>
               <button id="btn-enter-room2-from-manhwa" class="btn-brush-enter">ENTER THE GRAND CHAMBER →</button>
             </div>
           </div>
@@ -510,7 +551,7 @@
 
     <!-- Main Viewport: The Living 2.5D World Layer (Scene 2: Explorable Room) -->
     <main id="viewport-stage" class="viewport-stage hidden">
-      
+
       <!-- Guaranteed High-Resolution Painterly Art Plate Backdrop Layer -->
       <div id="room-backdrop-layer" class="room-backdrop-layer room1-gates"></div>
 
@@ -527,7 +568,8 @@
       <div id="arrival-banner" class="arrival-banner">
         <div class="arrival-symbol">❖</div>
         <div id="arrival-location" class="arrival-location">GATES OF VARANAVATA</div>
-        <div id="arrival-sub" class="arrival-sub">Bells chime on the northern Ganga; marigolds veil the architect’s gaze.</div>
+        <div id="arrival-sub" class="arrival-sub">Bells chime on the northern Ganga; marigolds veil the architect’s
+          gaze.</div>
       </div>
 
       <!-- Camera Pan Controls (Left & Right Arrows for 3-Angle Panning) -->
@@ -547,7 +589,8 @@
       <!-- Ambient World Activity Ticker -->
       <div class="ambient-strip">
         <span class="ambient-dot">●</span>
-        <span id="ambient-ticker-text">Golden hour sunbeams warm the river stones. A merchant cart creaks in the distance.</span>
+        <span id="ambient-ticker-text">Golden hour sunbeams warm the river stones. A merchant cart creaks in the
+          distance.</span>
       </div>
 
       <!-- Skip Entrance Cinematic Button -->
@@ -560,13 +603,13 @@
     <!-- Full-Screen In-World Close-Up System (No split modal, no white card) -->
     <div id="closeup-modal" class="closeup-modal fullscreen-view hidden">
       <div class="closeup-vignette-overlay"></div>
-      
+
       <!-- Top HUD Controls inside Close-Up -->
       <div class="closeup-top-bar">
         <button id="btn-close-closeup" class="btn-step-back" title="Return to room">
           <span class="step-back-arrow">‹</span> STEP BACK
         </button>
-        
+
         <div class="closeup-title-pill">
           <span id="closeup-object-label">INVESTIGATION</span>
         </div>
@@ -581,7 +624,7 @@
       <div class="closeup-viewport" id="closeup-viewport">
         <div class="closeup-canvas-container" id="closeup-canvas-container">
           <img id="closeup-image" src="" alt="Tactile Object" class="closeup-fullscreen-img">
-          
+
           <!-- In-world interactive object layer (Lock positioned directly on the crate, etc.) -->
           <div id="closeup-interactive-layer" class="closeup-interactive-layer"></div>
         </div>
@@ -595,7 +638,8 @@
       <!-- Short In-World Narrative Whisper (Fades in/out, single line, no paragraph) -->
       <div class="closeup-narrator-whisper" id="closeup-whisper-container">
         <span class="whisper-symbol">❧</span>
-        <p id="closeup-whisper-text">Three brass cylinder tumblers seal the heavy cedar box. Resin drips down the dark joinery.</p>
+        <p id="closeup-whisper-text">Three brass cylinder tumblers seal the heavy cedar box. Resin drips down the dark
+          joinery.</p>
       </div>
     </div>
 
@@ -620,14 +664,16 @@
           <!-- Tier 2: Direction -->
           <div class="hint-tier-card" id="hint-tier-2">
             <div class="tier-badge">TIER 2 · DIRECTION</div>
-            <p id="hint-t2-text">"Not every wagon is a part of the house. Compare what was promised with what was drawn. Look at what the gift's ring still hides."</p>
+            <p id="hint-t2-text">"Not every wagon is a part of the house. Compare what was promised with what was drawn.
+              Look at what the gift's ring still hides."</p>
             <button id="btn-highlight-tally" class="btn-tactile-hint">VIEW MERCHANT TALLY STONE</button>
           </div>
 
           <!-- Tier 3: Near-Solve -->
           <div class="hint-tier-card" id="hint-tier-3">
             <div class="tier-badge">TIER 3 · NEAR-SOLVE</div>
-            <p id="hint-t3-text">"Stamped wagons only. Folio minus the builder's word. Dark moons only. Write each in the merchant's marks, left to right."</p>
+            <p id="hint-t3-text">"Stamped wagons only. Folio minus the builder's word. Dark moons only. Write each in
+              the merchant's marks, left to right."</p>
           </div>
 
           <!-- Tier 4: Show Me (Give-up walkthrough) -->
@@ -662,7 +708,8 @@
         <div class="cinematic-symbol">✦</div>
         <h2 id="cinematic-title" class="cinematic-title">THE GATES OF LAKSHAGRIHA OPEN</h2>
         <p id="cinematic-text" class="cinematic-text">
-          As the heavy sal-wood doors swing inward, the scent of fresh honey, clarified butter, and polished cedar billows forward. You step inside with open eyes.
+          As the heavy sal-wood doors swing inward, the scent of fresh honey, clarified butter, and polished cedar
+          billows forward. You step inside with open eyes.
         </p>
         <button id="btn-cinematic-continue" class="btn-brush-enter">PROCEED TO THE GRAND CHAMBER →</button>
       </div>
@@ -685,7 +732,8 @@
             <button id="btn-clear-yarn" class="btn-board-clear" title="Clear all woven yarn strings">
               <span class="btn-board-icon">✦</span> Clear Strings
             </button>
-            <button id="btn-close-deduction" class="board-seal-close" title="Close Board (Esc or B)" aria-label="Close Board">
+            <button id="btn-close-deduction" class="board-seal-close" title="Close Board (Esc or B)"
+              aria-label="Close Board">
               <svg viewBox="0 0 28 28" width="20" height="20" aria-hidden="true">
                 <circle cx="14" cy="14" r="12" fill="#b84a2d" stroke="#872c1c" stroke-width="1.5" />
                 <path d="M9 9 L19 19 M19 9 L9 19" stroke="#fff9ed" stroke-width="2.2" stroke-linecap="round" />
@@ -720,9 +768,12 @@
             <div class="hypothesis-select-wrapper">
               <select id="deduction-hypothesis-select" class="hypothesis-select">
                 <option value="">-- Select an investigative hypothesis --</option>
-                <option value="fire_trap">"Lakshagriha is an engineered incendiary trap to consume without iron."</option>
-                <option value="safe_residence">"The cedar timber was coated with resin solely to resist river dampness."</option>
-                <option value="festival_display">"Purochana is stockpiling fireworks for the festival of Pashupati."</option>
+                <option value="fire_trap">"Lakshagriha is an engineered incendiary trap to consume without iron."
+                </option>
+                <option value="safe_residence">"The cedar timber was coated with resin solely to resist river dampness."
+                </option>
+                <option value="festival_display">"Purochana is stockpiling fireworks for the festival of Pashupati."
+                </option>
               </select>
             </div>
             <button id="btn-synthesize" class="btn-synthesize-themed" disabled>Test this idea</button>
@@ -750,7 +801,7 @@
 
       <!-- The Physical Open Manuscript Book -->
       <div class="open-book-container" id="open-book-container">
-        
+
         <!-- Realistic 3D Stacked Page Edges (Left & Right) -->
         <div class="book-pages-stack left-stack" aria-hidden="true"></div>
         <div class="book-pages-stack right-stack" aria-hidden="true"></div>
@@ -771,7 +822,8 @@
           <button class="ribbon-tab active" data-tab="notes" title="Chronicle & Notes">
             <svg class="ribbon-icon" viewBox="0 0 24 24" width="16" height="16">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="currentColor" stroke-width="1.8" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="currentColor"
+                stroke-width="1.8" />
               <line x1="8" y1="7" x2="16" y2="7" stroke="currentColor" stroke-width="1.6" />
               <line x1="8" y1="11" x2="14" y2="11" stroke="currentColor" stroke-width="1.6" />
             </svg>
@@ -791,14 +843,16 @@
           <button class="ribbon-tab" data-tab="hints" title="Hints & Riddles Ledger">
             <svg class="ribbon-icon" viewBox="0 0 24 24" width="16" height="16">
               <path d="M9 18h6 M10 22h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-              <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" fill="none" stroke="currentColor"
+                stroke-width="1.8" />
             </svg>
             <span class="ribbon-text">Hints</span>
           </button>
 
           <button class="ribbon-tab" data-tab="people" title="Dossier of Key Figures">
             <svg class="ribbon-icon" viewBox="0 0 24 24" width="16" height="16">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor"
+                stroke-width="1.8" />
               <circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
             </svg>
             <span class="ribbon-text">People</span>
@@ -806,7 +860,8 @@
 
           <button class="ribbon-tab" data-tab="map" title="Regional Map & Routes">
             <svg class="ribbon-icon" viewBox="0 0 24 24" width="16" height="16">
-              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" fill="none" stroke="currentColor"
+                stroke-width="1.8" />
               <line x1="8" y1="2" x2="8" y2="18" stroke="currentColor" stroke-width="1.8" />
               <line x1="16" y1="6" x2="16" y2="22" stroke="currentColor" stroke-width="1.8" />
             </svg>
@@ -816,7 +871,7 @@
 
         <!-- Two-Page Facing Spread Body -->
         <div class="book-pages-spread" id="book-pages-spread">
-          
+
           <!-- TAB 1: NOTES (The Chronicle & My Notes) -->
           <div class="folio-tab-pane active" id="tab-pane-notes">
             <div class="two-facing-pages">
@@ -830,7 +885,9 @@
 
                 <div class="page-scroll-content">
                   <p id="folio-text" class="book-narrative-text">
-                    <span class="narrative-drop-cap">T</span>he grand city was bathed in marigold garlands. King Dhritarashtra declared our stay a seasonal rest; Uncle Vidura said nothing aloud, yet his eyes carried the weight of impending ash.
+                    <span class="narrative-drop-cap">T</span>he grand city was bathed in marigold garlands. King
+                    Dhritarashtra declared our stay a seasonal rest; Uncle Vidura said nothing aloud, yet his eyes
+                    carried the weight of impending ash.
                   </p>
 
                   <section class="book-evidence-section">
@@ -857,7 +914,8 @@
                     <button id="btn-replay-manhwa" class="btn-ink-stamp" title="Replay Illustrated Arrival (Act I)">
                       <span class="stamp-icon">❖</span> REPLAY ACT I STORY
                     </button>
-                    <button id="btn-replay-manhwa-room2" class="btn-ink-stamp" style="margin-left: 8px;" title="Replay Illustrated Lakshagriha (Act II)">
+                    <button id="btn-replay-manhwa-room2" class="btn-ink-stamp" style="margin-left: 8px;"
+                      title="Replay Illustrated Lakshagriha (Act II)">
                       <span class="stamp-icon">❖</span> REPLAY ACT II STORY
                     </button>
                   </div>
@@ -872,7 +930,8 @@
                 </header>
 
                 <div class="ruled-writing-area">
-                  <textarea id="player-notes-textarea" class="player-notes-textarea" placeholder="What do you suspect?" aria-label="Personal Notes"></textarea>
+                  <textarea id="player-notes-textarea" class="player-notes-textarea" placeholder="What do you suspect?"
+                    aria-label="Personal Notes"></textarea>
                   <div class="notes-autosave-indicator" id="notes-save-indicator">✓ saved to chronicle</div>
                 </div>
               </div>
@@ -892,12 +951,14 @@
 
                 <div class="page-scroll-content">
                   <p class="book-narrative-text">
-                    <span class="narrative-drop-cap">C</span>arbon ink and river-clay wash on stretched vellum. Structural survey of partition joinery, load-bearing pillars, and concealed ventilation ducts.
+                    <span class="narrative-drop-cap">C</span>arbon ink and river-clay wash on stretched vellum.
+                    Structural survey of partition joinery, load-bearing pillars, and concealed ventilation ducts.
                   </p>
 
                   <div class="manuscript-anomaly-box">
                     <div class="anomaly-tag">STRUCTURAL ANOMALY</div>
-                    <p>Internal column cavities funneled with high-combustion shellac and dried resin cores. Built to draw drafts upward like chimney flues.</p>
+                    <p>Internal column cavities funneled with high-combustion shellac and dried resin cores. Built to
+                      draw drafts upward like chimney flues.</p>
                   </div>
                 </div>
               </div>
@@ -913,7 +974,8 @@
                   <div class="sketchbook-holder">
                     <canvas id="sketchbook-canvas" width="450" height="380"></canvas>
                   </div>
-                  <p id="sketch-caption" class="sketch-caption">“Study of the palace gates. Heavy bitumen wagons concealed beneath tarpaulin.”</p>
+                  <p id="sketch-caption" class="sketch-caption">“Study of the palace gates. Heavy bitumen wagons
+                    concealed beneath tarpaulin.”</p>
                 </div>
               </div>
             </div>
@@ -931,12 +993,14 @@
                 </header>
                 <div class="page-scroll-content">
                   <p class="book-narrative-text">
-                    <span class="narrative-drop-cap">A</span> neutral ledger of cryptic warnings and philosophical counsel noted during the journey. Wisdom given in shadows to bypass the ears of listening spies.
+                    <span class="narrative-drop-cap">A</span> neutral ledger of cryptic warnings and philosophical
+                    counsel noted during the journey. Wisdom given in shadows to bypass the ears of listening spies.
                   </p>
                   <div class="ledger-table-block" id="folio-hints-list-left">
                     <div class="ledger-row">
                       <span class="ledger-tier">TIER I · POETIC NUDGE</span>
-                      <p class="ledger-body">"The wanderer's copper gift turns toward the north... what coordinates does the quill indicate?"</p>
+                      <p class="ledger-body">"The wanderer's copper gift turns toward the north... what coordinates does
+                        the quill indicate?"</p>
                     </div>
                   </div>
                 </div>
@@ -952,11 +1016,13 @@
                   <div class="ledger-table-block" id="folio-hints-list-right">
                     <div class="ledger-row">
                       <span class="ledger-tier">TIER II · THE ROSETTA STONE</span>
-                      <p class="ledger-body">Merchant's tally markings translate Sanskrit numerals: १=1, २=2, ३=3, ४=4, ५=5, ६=6, ७=7, ८=8, ९=9.</p>
+                      <p class="ledger-body">Merchant's tally markings translate Sanskrit numerals: १=1, २=2, ३=3, ४=4,
+                        ५=5, ६=6, ७=7, ८=8, ९=9.</p>
                     </div>
                     <div class="ledger-row">
                       <span class="ledger-tier">TIER III · PORCUPINE ENIGMA</span>
-                      <p class="ledger-body">"The creature that burrows like the porcupine shall survive the conflagration without iron."</p>
+                      <p class="ledger-body">"The creature that burrows like the porcupine shall survive the
+                        conflagration without iron."</p>
                     </div>
                   </div>
                 </div>
@@ -980,7 +1046,8 @@
                     <div class="book-person-meta">
                       <h4>Queen Mother Kunti</h4>
                       <span class="book-person-role">Mother of the Pandavas</span>
-                      <p>Ever observant. Sensed the acrid scent of heated bitumen beneath the temple floral garlands.</p>
+                      <p>Ever observant. Sensed the acrid scent of heated bitumen beneath the temple floral garlands.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1026,12 +1093,17 @@
                 </header>
                 <div class="page-scroll-content">
                   <p class="book-narrative-text">
-                    <span class="narrative-drop-cap">T</span>he holy city sits upon the high limestone bluffs north of the Ganga. The river current runs swift toward the eastern marshes, offering the sole covert avenue of flight.
+                    <span class="narrative-drop-cap">T</span>he holy city sits upon the high limestone bluffs north of
+                    the Ganga. The river current runs swift toward the eastern marshes, offering the sole covert avenue
+                    of flight.
                   </p>
                   <ul class="book-map-waypoints">
-                    <li><strong>❖ Northern Boulevard:</strong> Festival gates, merchant convoys, and market shrines.</li>
-                    <li><strong>❖ High Promontory:</strong> Site of Lakshagriha, walled on three sides by precipitous ravines.</li>
-                    <li><strong>❖ Shallows & Skiffs:</strong> Secret reed beds where Vidura's disguised boatman waits.</li>
+                    <li><strong>❖ Northern Boulevard:</strong> Festival gates, merchant convoys, and market shrines.
+                    </li>
+                    <li><strong>❖ High Promontory:</strong> Site of Lakshagriha, walled on three sides by precipitous
+                      ravines.</li>
+                    <li><strong>❖ Shallows & Skiffs:</strong> Secret reed beds where Vidura's disguised boatman waits.
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -1047,19 +1119,22 @@
                     <div class="map-compass-rose">❖ N</div>
                     <div class="drawn-map-content">
                       <div class="map-location-marker loc-gate active">
-                        <svg class="marker-ink-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <svg class="marker-ink-icon" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                          stroke="currentColor" stroke-width="1.8">
                           <path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16M2 21h20M9 21V11h6v10" />
                         </svg>
                         <span class="marker-text">FESTIVAL GATES (Current)</span>
                       </div>
                       <div class="map-location-marker loc-palace">
-                        <svg class="marker-ink-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <svg class="marker-ink-icon" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                          stroke="currentColor" stroke-width="1.8">
                           <path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6" />
                         </svg>
                         <span class="marker-text">LAKSHAGRIHA PALACE</span>
                       </div>
                       <div class="map-location-marker loc-river">
-                        <svg class="marker-ink-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <svg class="marker-ink-icon" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                          stroke="currentColor" stroke-width="1.8">
                           <path d="M2 17l2 4h16l2-4H2zM12 3v14M8 7l4-4 4 4" />
                         </svg>
                         <span class="marker-text">GANGA ESCAPE SKIFF</span>
@@ -1099,4 +1174,5 @@
 
   <script type="module" src="./src/main.ts"></script>
 </body>
+
 </html>

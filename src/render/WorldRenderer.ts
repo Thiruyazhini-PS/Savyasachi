@@ -8,6 +8,7 @@
 import { Application, Container, Sprite, Graphics, Assets } from 'pixi.js';
 import gsap from 'gsap';
 import { AudioEngine } from '../audio/SpatialAudio';
+import { getAssetUrl } from '../utils/assets';
 
 export interface WindVector {
   x: number;
@@ -167,7 +168,7 @@ export class WorldRenderer {
     this.currentRoomScene = roomNumber;
     try {
       if (roomNumber === 2) {
-        const hallTexture = await Assets.load('/assets/room02_hall_wide.jpg');
+        const hallTexture = await Assets.load(getAssetUrl('assets/room02_hall_wide.jpg'));
         if (!this.skySprite && this.layerSkyFar) {
           this.skySprite = new Sprite(hallTexture);
           this.skySprite.anchor.set(0.5, 0.5);
@@ -182,8 +183,8 @@ export class WorldRenderer {
           this.palaceSprite.alpha = 0;
         }
       } else {
-        const skyTexture = await Assets.load('/assets/varanavata_sky_far.jpg');
-        const palaceTexture = await Assets.load('/assets/varanavata_mid_palace.jpg');
+        const skyTexture = await Assets.load(getAssetUrl('assets/varanavata_sky_far.jpg'));
+        const palaceTexture = await Assets.load(getAssetUrl('assets/varanavata_mid_palace.jpg'));
         if (this.skySprite) {
           this.skySprite.texture = skyTexture;
           this.skySprite.visible = true;
@@ -203,8 +204,8 @@ export class WorldRenderer {
 
   private async loadPainterlyAssets() {
     try {
-      const skyTexture = await Assets.load('/assets/varanavata_sky_far.jpg');
-      const palaceTexture = await Assets.load('/assets/varanavata_mid_palace.jpg');
+      const skyTexture = await Assets.load(getAssetUrl('assets/varanavata_sky_far.jpg'));
+      const palaceTexture = await Assets.load(getAssetUrl('assets/varanavata_mid_palace.jpg'));
 
       this.skySprite = new Sprite(skyTexture);
       this.skySprite.anchor.set(0.5, 0.5);
